@@ -1,0 +1,39 @@
+{
+  "manifest_version": 3,
+  "name": "FOMO to GMGN Token Linker",
+  "version": "1.0.0",
+  "description": "Adds direct GMGN trading and analytics buttons to tokens on fomo.family",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    },
+    "default_title": "FOMO to GMGN Settings"
+  },
+  "permissions": [
+    "storage"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://fomo.family/*",
+        "https://*.fomo.family/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "css": [
+        "content.css"
+      ],
+      "run_at": "document_idle"
+    }
+  ]
+}
+

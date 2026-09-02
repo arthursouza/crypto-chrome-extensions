@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FOMO to GMGN</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="popup-container">
+    <!-- Header -->
+    <header class="header">
+      <div class="logo-group">
+        <div class="logo-badge">GM</div>
+        <div>
+          <h1 class="title">FOMO → GMGN</h1>
+          <p class="subtitle">Direct Token Linker</p>
+        </div>
+      </div>
+      <div class="status-pill active">
+        <span class="status-dot"></span>
+        <span>Active</span>
+      </div>
+    </header>
+
+    <!-- Settings List -->
+    <div class="section">
+      <div class="section-title">Display Settings</div>
+
+      <div class="setting-item">
+        <div class="setting-info">
+          <span class="setting-label">Token Lists (/tokens)</span>
+          <span class="setting-desc">Inject GMGN buttons into token rows</span>
+        </div>
+        <label class="switch">
+          <input type="checkbox" id="showOnList" checked>
+          <span class="slider"></span>
+        </label>
+      </div>
+
+      <div class="setting-item">
+        <div class="setting-info">
+          <span class="setting-label">Token Detail Pages</span>
+          <span class="setting-desc">Inject GMGN button into token header</span>
+        </div>
+        <label class="switch">
+          <input type="checkbox" id="showOnTokenPage" checked>
+          <span class="slider"></span>
+        </label>
+      </div>
+
+      <div class="setting-item">
+        <div class="setting-info">
+          <span class="setting-label">Floating Quick Button</span>
+          <span class="setting-desc">Corner shortcut on token pages</span>
+        </div>
+        <label class="switch">
+          <input type="checkbox" id="showFloatingButton">
+        </label>
+      </div>
+
+      <div class="setting-item">
+        <div class="setting-info">
+          <span class="setting-label">Open in New Tab</span>
+          <span class="setting-desc">Open GMGN in background/new tab</span>
+        </div>
+        <label class="switch">
+          <input type="checkbox" id="openInNewTab" checked>
+          <span class="slider"></span>
+        </label>
+      </div>
+    </div>
+
+    <!-- Referral / Config -->
+    <div class="section">
+      <div class="section-title">Optional Referral Code</div>
+      <div class="input-group">
+        <input type="text" id="customRefCode" placeholder="e.g. your_ref_code" class="text-input">
+        <button id="saveRefBtn" class="btn btn-secondary">Save</button>
+      </div>
+      <span id="saveNotice" class="save-notice">Saved!</span>
+    </div>
+
+    <!-- Quick Links Footer -->
+    <div class="footer">
+      <a href="https://fomo.family/tokens" target="_blank" class="quick-link">
+        🚀 FOMO Tokens
+      </a>
+      <a href="https://gmgn.ai" target="_blank" class="quick-link">
+        📊 GMGN Terminal
+      </a>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
+

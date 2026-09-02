@@ -1,0 +1,164 @@
+/* FOMO to GMGN Chrome Extension Styles */
+
+:root {
+  --gmgn-accent: #22d399;
+  --gmgn-accent-hover: #34d399;
+  --gmgn-bg-dark: #12141c;
+  --gmgn-bg-hover: #1a1d28;
+  --gmgn-border: rgba(34, 211, 153, 0.25);
+  --gmgn-border-hover: rgba(34, 211, 153, 0.6);
+  --gmgn-text: #f3f4f6;
+  --gmgn-glow: 0 0 12px rgba(34, 211, 153, 0.25);
+}
+
+/* Base GMGN button */
+.fomo-gmgn-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  background: var(--gmgn-bg-dark);
+  color: var(--gmgn-accent);
+  border: 1px solid var(--gmgn-border);
+  border-radius: 9999px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1;
+  text-decoration: none !important;
+  cursor: pointer;
+  box-sizing: border-box;
+  transition: all 0.18s cubic-bezier(0.4, 0, 0.2, 1);
+  user-select: none;
+  z-index: 10;
+  position: relative;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+.fomo-gmgn-btn:hover {
+  background: var(--gmgn-bg-hover);
+  color: #ffffff;
+  border-color: var(--gmgn-border-hover);
+  box-shadow: var(--gmgn-glow);
+  transform: translateY(-1px);
+}
+
+.fomo-gmgn-btn:active {
+  transform: translateY(0);
+}
+
+.fomo-gmgn-btn svg {
+  display: inline-block;
+  vertical-align: middle;
+  flex-shrink: 0;
+}
+
+/* List / Row Button Variant */
+.fomo-gmgn-list-btn {
+  padding: 4px 8px;
+  font-size: 11px;
+  margin-left: 6px;
+  height: 24px;
+}
+
+.fomo-gmgn-list-btn .fomo-gmgn-label {
+  letter-spacing: 0.3px;
+}
+
+/* Header / Token Detail Page Button Variant */
+.fomo-gmgn-header-btn {
+  padding: 6px 12px;
+  font-size: 13px;
+  height: 32px;
+  margin-left: 8px;
+  background: rgba(34, 211, 153, 0.08);
+  border: 1px solid rgba(34, 211, 153, 0.35);
+}
+
+.fomo-gmgn-header-btn:hover {
+  background: rgba(34, 211, 153, 0.18);
+  border-color: rgba(34, 211, 153, 0.8);
+}
+
+/* Chain Badge indicator inside button */
+.fomo-gmgn-chain-badge {
+  font-size: 9px;
+  text-transform: uppercase;
+  background: rgba(34, 211, 153, 0.15);
+  color: var(--gmgn-accent);
+  padding: 2px 4px;
+  border-radius: 4px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+/* Floating Quick Button (bottom right on token detail pages) */
+.fomo-gmgn-floating-btn {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 999999;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #0f131a;
+  border: 1px solid var(--gmgn-accent);
+  color: #ffffff;
+  padding: 10px 16px;
+  border-radius: 9999px;
+  font-size: 13px;
+  font-weight: 700;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6), 0 0 16px rgba(34, 211, 153, 0.3);
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(8px);
+}
+
+.fomo-gmgn-floating-btn:hover {
+  background: #171d27;
+  border-color: #34d399;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7), 0 0 24px rgba(34, 211, 153, 0.5);
+  transform: translateY(-2px);
+  color: var(--gmgn-accent);
+}
+
+.fomo-gmgn-floating-btn .fomo-gmgn-icon {
+  color: var(--gmgn-accent);
+}
+
+/* Tooltip animation on hover */
+.fomo-gmgn-tooltip-wrapper {
+  position: relative;
+  display: inline-flex;
+}
+
+.fomo-gmgn-tooltip {
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  bottom: 125%;
+  left: 50%;
+  transform: translateX(-50%) translateY(4px);
+  background-color: #0b0e14;
+  color: #e2e8f0;
+  text-align: center;
+  padding: 5px 9px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 500;
+  white-space: nowrap;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  pointer-events: none;
+  transition: all 0.15s ease-in-out;
+  z-index: 10000;
+}
+
+.fomo-gmgn-tooltip-wrapper:hover .fomo-gmgn-tooltip {
+  visibility: visible;
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
