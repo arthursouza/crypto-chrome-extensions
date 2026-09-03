@@ -1,164 +1,175 @@
-/* FOMO to GMGN Chrome Extension Styles */
+/* FOMO to GMGN & BasedBot Chrome Extension Styles */
 
 :root {
-  --gmgn-accent: #22d399;
-  --gmgn-accent-hover: #34d399;
-  --gmgn-bg-dark: #12141c;
-  --gmgn-bg-hover: #1a1d28;
-  --gmgn-border: rgba(34, 211, 153, 0.25);
-  --gmgn-border-hover: rgba(34, 211, 153, 0.6);
-  --gmgn-text: #f3f4f6;
-  --gmgn-glow: 0 0 12px rgba(34, 211, 153, 0.25);
+  --fomo-gmgn-accent: #22d399;
+  --fomo-gmgn-bg: rgba(34, 211, 153, 0.12);
+  --fomo-gmgn-border: rgba(34, 211, 153, 0.32);
+  --fomo-gmgn-hover-bg: rgba(34, 211, 153, 0.24);
+  --fomo-gmgn-hover-border: #34d399;
+  --fomo-gmgn-glow: 0 0 8px rgba(34, 211, 153, 0.35);
+
+  --fomo-based-accent: #38bdf8;
+  --fomo-based-bg: rgba(56, 189, 248, 0.12);
+  --fomo-based-border: rgba(56, 189, 248, 0.32);
+  --fomo-based-hover-bg: rgba(56, 189, 248, 0.24);
+  --fomo-based-hover-border: #38bdf8;
+  --fomo-based-glow: 0 0 8px rgba(56, 189, 248, 0.35);
 }
 
-/* Base GMGN button */
-.fomo-gmgn-btn {
+/* Button Group Wrapper */
+.fomo-ext-btn-group {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  margin-left: 4px;
+  vertical-align: middle;
+  flex-shrink: 0;
+  z-index: 10;
+}
+
+/* Base Extension Button */
+.fomo-ext-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 5px;
-  background: var(--gmgn-bg-dark);
-  color: var(--gmgn-accent);
-  border: 1px solid var(--gmgn-border);
-  border-radius: 9999px;
+  gap: 3px;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  font-size: 12px;
   font-weight: 600;
   line-height: 1;
   text-decoration: none !important;
   cursor: pointer;
   box-sizing: border-box;
-  transition: all 0.18s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
   user-select: none;
-  z-index: 10;
-  position: relative;
   white-space: nowrap;
   vertical-align: middle;
+  backdrop-filter: blur(4px);
 }
 
-.fomo-gmgn-btn:hover {
-  background: var(--gmgn-bg-hover);
-  color: #ffffff;
-  border-color: var(--gmgn-border-hover);
-  box-shadow: var(--gmgn-glow);
-  transform: translateY(-1px);
-}
-
-.fomo-gmgn-btn:active {
-  transform: translateY(0);
-}
-
-.fomo-gmgn-btn svg {
+.fomo-ext-btn svg {
   display: inline-block;
   vertical-align: middle;
   flex-shrink: 0;
 }
 
-/* List / Row Button Variant */
-.fomo-gmgn-list-btn {
-  padding: 4px 8px;
-  font-size: 11px;
-  margin-left: 6px;
-  height: 24px;
+.fomo-ext-btn:active {
+  transform: translateY(0);
 }
 
-.fomo-gmgn-list-btn .fomo-gmgn-label {
-  letter-spacing: 0.3px;
+/* GMGN Button Theme */
+.fomo-ext-btn-gmgn {
+  background: var(--fomo-gmgn-bg);
+  color: var(--fomo-gmgn-accent);
+  border: 1px solid var(--fomo-gmgn-border);
 }
 
-/* Header / Token Detail Page Button Variant */
-.fomo-gmgn-header-btn {
-  padding: 6px 12px;
-  font-size: 13px;
-  height: 32px;
-  margin-left: 8px;
-  background: rgba(34, 211, 153, 0.08);
-  border: 1px solid rgba(34, 211, 153, 0.35);
+.fomo-ext-btn-gmgn:hover {
+  background: var(--fomo-gmgn-hover-bg);
+  color: #ffffff;
+  border-color: var(--fomo-gmgn-hover-border);
+  box-shadow: var(--fomo-gmgn-glow);
+  transform: translateY(-1px);
 }
 
-.fomo-gmgn-header-btn:hover {
-  background: rgba(34, 211, 153, 0.18);
-  border-color: rgba(34, 211, 153, 0.8);
+/* BasedBot Button Theme */
+.fomo-ext-btn-basedbot {
+  background: var(--fomo-based-bg);
+  color: var(--fomo-based-accent);
+  border: 1px solid var(--fomo-based-border);
 }
 
-/* Chain Badge indicator inside button */
-.fomo-gmgn-chain-badge {
-  font-size: 9px;
-  text-transform: uppercase;
-  background: rgba(34, 211, 153, 0.15);
-  color: var(--gmgn-accent);
-  padding: 2px 4px;
+.fomo-ext-btn-basedbot:hover {
+  background: var(--fomo-based-hover-bg);
+  color: #ffffff;
+  border-color: var(--fomo-based-hover-border);
+  box-shadow: var(--fomo-based-glow);
+  transform: translateY(-1px);
+}
+
+/* =========================================================
+   1. Compact List / Table Row Variant (Small to fit more)
+   ========================================================= */
+.fomo-ext-list-group {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  margin-left: 4px;
+}
+
+.fomo-ext-list-btn {
+  padding: 1px 5px;
+  font-size: 10px;
+  height: 18px;
   border-radius: 4px;
-  font-weight: 700;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.1px;
 }
 
-/* Floating Quick Button (bottom right on token detail pages) */
-.fomo-gmgn-floating-btn {
+.fomo-ext-list-btn .fomo-ext-label {
+  line-height: 1;
+}
+
+/* =========================================================
+   2. Header / Token Detail Page Variant
+   ========================================================= */
+.fomo-ext-header-group {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: 8px;
+  vertical-align: middle;
+}
+
+.fomo-ext-header-btn {
+  padding: 3px 8px;
+  font-size: 11px;
+  height: 25px;
+  border-radius: 6px;
+  gap: 4px;
+}
+
+/* Chain Badges */
+.fomo-ext-chain-badge {
+  font-size: 8.5px;
+  text-transform: uppercase;
+  padding: 1px 4px;
+  border-radius: 3px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  line-height: 1;
+}
+
+.fomo-ext-badge-gmgn {
+  background: rgba(34, 211, 153, 0.2);
+  color: var(--fomo-gmgn-accent);
+}
+
+.fomo-ext-badge-basedbot {
+  background: rgba(56, 189, 248, 0.2);
+  color: var(--fomo-based-accent);
+}
+
+/* =========================================================
+   3. Floating Quick Action Buttons (Bottom Right)
+   ========================================================= */
+.fomo-ext-floating-container {
   position: fixed;
-  bottom: 24px;
-  right: 24px;
+  bottom: 20px;
+  right: 20px;
   z-index: 999999;
   display: flex;
   align-items: center;
   gap: 8px;
-  background: #0f131a;
-  border: 1px solid var(--gmgn-accent);
-  color: #ffffff;
-  padding: 10px 16px;
+}
+
+.fomo-ext-floating-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  height: 30px;
   border-radius: 9999px;
-  font-size: 13px;
+  font-size: 11.5px;
   font-weight: 700;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6), 0 0 16px rgba(34, 211, 153, 0.3);
-  text-decoration: none;
-  cursor: pointer;
-  transition: all 0.2s ease;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(8px);
 }
-
-.fomo-gmgn-floating-btn:hover {
-  background: #171d27;
-  border-color: #34d399;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7), 0 0 24px rgba(34, 211, 153, 0.5);
-  transform: translateY(-2px);
-  color: var(--gmgn-accent);
-}
-
-.fomo-gmgn-floating-btn .fomo-gmgn-icon {
-  color: var(--gmgn-accent);
-}
-
-/* Tooltip animation on hover */
-.fomo-gmgn-tooltip-wrapper {
-  position: relative;
-  display: inline-flex;
-}
-
-.fomo-gmgn-tooltip {
-  visibility: hidden;
-  opacity: 0;
-  position: absolute;
-  bottom: 125%;
-  left: 50%;
-  transform: translateX(-50%) translateY(4px);
-  background-color: #0b0e14;
-  color: #e2e8f0;
-  text-align: center;
-  padding: 5px 9px;
-  border-radius: 6px;
-  font-size: 11px;
-  font-weight: 500;
-  white-space: nowrap;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
-  pointer-events: none;
-  transition: all 0.15s ease-in-out;
-  z-index: 10000;
-}
-
-.fomo-gmgn-tooltip-wrapper:hover .fomo-gmgn-tooltip {
-  visibility: visible;
-  opacity: 1;
-  transform: translateX(-50%) translateY(0);
-}
-

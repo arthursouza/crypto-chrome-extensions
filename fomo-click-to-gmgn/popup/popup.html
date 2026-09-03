@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FOMO to GMGN</title>
+  <title>FOMO Trading Linker</title>
   <link rel="stylesheet" href="popup.css">
 </head>
 <body>
@@ -11,10 +11,13 @@
     <!-- Header -->
     <header class="header">
       <div class="logo-group">
-        <div class="logo-badge">GM</div>
+        <div class="logo-badges">
+          <span class="badge-gmgn">GM</span>
+          <span class="badge-based">BB</span>
+        </div>
         <div>
-          <h1 class="title">FOMO → GMGN</h1>
-          <p class="subtitle">Direct Token Linker</p>
+          <h1 class="title">FOMO Trade Linker</h1>
+          <p class="subtitle">GMGN & BasedBot Quick Links</p>
         </div>
       </div>
       <div class="status-pill active">
@@ -23,14 +26,41 @@
       </div>
     </header>
 
-    <!-- Settings List -->
+    <!-- Platform Settings -->
+    <div class="section">
+      <div class="section-title">Enabled Platforms</div>
+
+      <div class="setting-item">
+        <div class="setting-info">
+          <span class="setting-label gmgn-color">GMGN Terminal</span>
+          <span class="setting-desc">Inject GMGN trade buttons</span>
+        </div>
+        <label class="switch">
+          <input type="checkbox" id="showGmgn" checked>
+          <span class="slider"></span>
+        </label>
+      </div>
+
+      <div class="setting-item">
+        <div class="setting-info">
+          <span class="setting-label based-color">BasedBot</span>
+          <span class="setting-desc">Inject BasedBot trade buttons</span>
+        </div>
+        <label class="switch">
+          <input type="checkbox" id="showBasedBot" checked>
+          <span class="slider"></span>
+        </label>
+      </div>
+    </div>
+
+    <!-- Display Settings -->
     <div class="section">
       <div class="section-title">Display Settings</div>
 
       <div class="setting-item">
         <div class="setting-info">
           <span class="setting-label">Token Lists (/tokens)</span>
-          <span class="setting-desc">Inject GMGN buttons into token rows</span>
+          <span class="setting-desc">Inject compact buttons in token rows</span>
         </div>
         <label class="switch">
           <input type="checkbox" id="showOnList" checked>
@@ -41,7 +71,7 @@
       <div class="setting-item">
         <div class="setting-info">
           <span class="setting-label">Token Detail Pages</span>
-          <span class="setting-desc">Inject GMGN button into token header</span>
+          <span class="setting-desc">Inject buttons into token header</span>
         </div>
         <label class="switch">
           <input type="checkbox" id="showOnTokenPage" checked>
@@ -51,18 +81,19 @@
 
       <div class="setting-item">
         <div class="setting-info">
-          <span class="setting-label">Floating Quick Button</span>
-          <span class="setting-desc">Corner shortcut on token pages</span>
+          <span class="setting-label">Floating Quick Buttons</span>
+          <span class="setting-desc">Corner shortcuts on token pages</span>
         </div>
         <label class="switch">
           <input type="checkbox" id="showFloatingButton">
+          <span class="slider"></span>
         </label>
       </div>
 
       <div class="setting-item">
         <div class="setting-info">
           <span class="setting-label">Open in New Tab</span>
-          <span class="setting-desc">Open GMGN in background/new tab</span>
+          <span class="setting-desc">Open links in background / new tab</span>
         </div>
         <label class="switch">
           <input type="checkbox" id="openInNewTab" checked>
@@ -71,23 +102,38 @@
       </div>
     </div>
 
-    <!-- Referral / Config -->
+    <!-- Referral Codes Section -->
     <div class="section">
-      <div class="section-title">Optional Referral Code</div>
-      <div class="input-group">
-        <input type="text" id="customRefCode" placeholder="e.g. your_ref_code" class="text-input">
-        <button id="saveRefBtn" class="btn btn-secondary">Save</button>
+      <div class="section-title">Referral Configuration</div>
+
+      <div class="input-field-group">
+        <label for="basedBotRefCode" class="input-label based-color">BasedBot Referral (/r/...)</label>
+        <div class="input-group">
+          <input type="text" id="basedBotRefCode" value="lotuzx" placeholder="lotuzx" class="text-input">
+        </div>
       </div>
-      <span id="saveNotice" class="save-notice">Saved!</span>
+
+      <div class="input-field-group">
+        <label for="gmgnRefCode" class="input-label gmgn-color">GMGN Referral Code (token/{ref}_addr)</label>
+        <div class="input-group">
+          <input type="text" id="gmgnRefCode" value="yjpf6bOc" placeholder="yjpf6bOc" class="text-input">
+        </div>
+      </div>
+
+      <button id="saveRefBtn" class="btn btn-primary">Save Settings</button>
+      <span id="saveNotice" class="save-notice">Settings saved!</span>
     </div>
 
     <!-- Quick Links Footer -->
     <div class="footer">
       <a href="https://fomo.family/tokens" target="_blank" class="quick-link">
-        🚀 FOMO Tokens
+        🚀 FOMO
       </a>
-      <a href="https://gmgn.ai" target="_blank" class="quick-link">
-        📊 GMGN Terminal
+      <a href="https://basedbot.app/r/lotuzx" target="_blank" class="quick-link quick-link-based">
+        🤖 BasedBot
+      </a>
+      <a href="https://gmgn.ai/?ref=yjpf6bOc" target="_blank" class="quick-link quick-link-gmgn">
+        📊 GMGN
       </a>
     </div>
   </div>
@@ -95,4 +141,3 @@
   <script src="popup.js"></script>
 </body>
 </html>
-

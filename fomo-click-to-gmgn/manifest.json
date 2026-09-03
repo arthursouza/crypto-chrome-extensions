@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "FOMO to GMGN Token Linker",
-  "version": "1.0.0",
-  "description": "Adds direct GMGN trading and analytics buttons to tokens on fomo.family",
+  "name": "FOMO to GMGN & BasedBot Token Linker",
+  "version": "1.1.0",
+  "description": "Adds compact GMGN and BasedBot trading and analytics buttons to tokens on fomo.family",
   "icons": {
     "16": "icons/icon16.png",
     "48": "icons/icon48.png",
@@ -15,7 +15,7 @@
       "48": "icons/icon48.png",
       "128": "icons/icon128.png"
     },
-    "default_title": "FOMO to GMGN Settings"
+    "default_title": "FOMO Trading Linker Settings"
   },
   "permissions": [
     "storage"
