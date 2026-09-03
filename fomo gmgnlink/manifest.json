@@ -18,7 +18,6 @@
     "default_title": "FOMO to GMGN Settings"
   },
   "permissions": [
-    "storage"
   ],
   "content_scripts": [
     {
