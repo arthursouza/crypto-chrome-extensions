@@ -515,13 +515,13 @@
       const btnGroup = createButtonGroup(chain, address, 'list');
       rowContainer.setAttribute('data-fomo-ext-row', address);
 
-      // Look for best inline placement in row
+      // Look for best placement on a separate line below token name
       const targetArea = link.querySelector('[class*="flex items-center"]') || 
                          link.parentElement?.querySelector('[class*="flex items-center"]') || 
                          link;
 
-      if (targetArea && targetArea !== link && !targetArea.classList.contains('fomo-ext-btn-group')) {
-        targetArea.appendChild(btnGroup);
+      if (targetArea && !targetArea.classList.contains('fomo-ext-btn-group')) {
+        targetArea.insertAdjacentElement('afterend', btnGroup);
       } else {
         link.insertAdjacentElement('afterend', btnGroup);
       }

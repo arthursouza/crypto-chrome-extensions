@@ -90,10 +90,12 @@
    1. Compact List / Table Row Variant (Small to fit more)
    ========================================================= */
 .fomo-ext-list-group {
-  display: inline-flex;
+  display: flex;
   align-items: center;
-  gap: 3px;
-  margin-left: 4px;
+  gap: 4px;
+  margin: 3px 0 2px 0;
+  width: 100%;
+  flex-basis: 100%;
 }
 
 .fomo-ext-list-btn {
