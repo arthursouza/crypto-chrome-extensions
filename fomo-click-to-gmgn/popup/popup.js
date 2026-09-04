@@ -5,20 +5,13 @@ document.addEventListener('DOMContentLoaded', () => {
   const showOnTokenPage = document.getElementById('showOnTokenPage');
   const showFloatingButton = document.getElementById('showFloatingButton');
   const openInNewTab = document.getElementById('openInNewTab');
-  const basedBotRefCode = document.getElementById('basedBotRefCode');
-  const gmgnRefCode = document.getElementById('gmgnRefCode');
-  const saveRefBtn = document.getElementById('saveRefBtn');
-  const saveNotice = document.getElementById('saveNotice');
-
   const defaults = {
     showGmgn: true,
     showBasedBot: true,
     showOnList: true,
     showOnTokenPage: true,
     showFloatingButton: false,
-    openInNewTab: true,
-    basedBotRefCode: 'lotuzx',
-    gmgnRefCode: 'yjpf6bOc'
+    openInNewTab: true
   };
 
   // Load saved settings
@@ -30,8 +23,6 @@ document.addEventListener('DOMContentLoaded', () => {
       showOnTokenPage.checked = items.showOnTokenPage ?? defaults.showOnTokenPage;
       showFloatingButton.checked = items.showFloatingButton ?? defaults.showFloatingButton;
       openInNewTab.checked = items.openInNewTab ?? defaults.openInNewTab;
-      basedBotRefCode.value = items.basedBotRefCode !== undefined ? items.basedBotRefCode : defaults.basedBotRefCode;
-      gmgnRefCode.value = items.gmgnRefCode !== undefined ? items.gmgnRefCode : (items.customRefCode || defaults.gmgnRefCode);
     });
   }
 
@@ -48,23 +39,4 @@ document.addEventListener('DOMContentLoaded', () => {
   showOnTokenPage.addEventListener('change', (e) => saveSetting('showOnTokenPage', e.target.checked));
   showFloatingButton.addEventListener('change', (e) => saveSetting('showFloatingButton', e.target.checked));
   openInNewTab.addEventListener('change', (e) => saveSetting('openInNewTab', e.target.checked));
-
-  // Save referral codes
-  saveRefBtn.addEventListener('click', () => {
-    const bCode = basedBotRefCode.value.trim();
-    const gCode = gmgnRefCode.value.trim();
-    
-    if (typeof chrome !== 'undefined' && chrome.storage && chrome.storage.sync) {
-      chrome.storage.sync.set({
-        basedBotRefCode: bCode,
-        gmgnRefCode: gCode,
-        customRefCode: gCode
-      }, () => {
-        saveNotice.style.display = 'block';
-        setTimeout(() => {
-          saveNotice.style.display = 'none';
-        }, 1800);
-      });
-    }
-  });
 });

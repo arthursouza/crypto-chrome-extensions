@@ -10,6 +10,10 @@
   if (window.__FOMO_TRADING_EXT_INJECTED__) return;
   window.__FOMO_TRADING_EXT_INJECTED__ = true;
 
+  // Creator referral codes
+  const GMGN_REF_CODE = 'yjpf6bOc';
+  const BASEDBOT_REF_CODE = 'lotuzx';
+
   // Default configuration
   let config = {
     showGmgn: true,
@@ -17,10 +21,7 @@
     showOnList: true,
     showOnTokenPage: true,
     showFloatingButton: false, // Default false to avoid visual clutter
-    openInNewTab: true,
-    gmgnRefCode: 'yjpf6bOc', // default GMGN referral code
-    customRefCode: 'yjpf6bOc', // legacy GMGN ref code fallback
-    basedBotRefCode: 'lotuzx' // default BasedBot referral code
+    openInNewTab: true
   };
 
   // Load user configuration from Chrome storage
@@ -203,24 +204,19 @@
    */
   function buildGmgnUrl(chain, address) {
     const normalizedChain = normalizeGmgnChain(chain, address);
-    const refCode = (config.gmgnRefCode !== undefined && config.gmgnRefCode !== null 
-      ? config.gmgnRefCode 
-      : (config.customRefCode || 'yjpf6bOc')).trim();
-
-    if (refCode) {
-      return `https://gmgn.ai/${normalizedChain}/token/${encodeURIComponent(refCode)}_${address}`;
+    if (GMGN_REF_CODE) {
+      return `https://gmgn.ai/${normalizedChain}/token/${encodeURIComponent(GMGN_REF_CODE)}_${address}`;
     }
     return `https://gmgn.ai/${normalizedChain}/token/${address}`;
   }
 
   /**
-   * Generates BasedBot URL with referral (default: /r/lotuzx/...)
+   * Generates BasedBot URL with referral (/r/lotuzx/...)
    */
   function buildBasedBotUrl(chain, address) {
     const normalizedChain = normalizeBasedBotChain(chain, address);
-    const refCode = (config.basedBotRefCode !== undefined ? config.basedBotRefCode : 'lotuzx').trim();
-    if (refCode) {
-      return `https://basedbot.app/r/${encodeURIComponent(refCode)}/token/${normalizedChain}/${address}`;
+    if (BASEDBOT_REF_CODE) {
+      return `https://basedbot.app/r/${encodeURIComponent(BASEDBOT_REF_CODE)}/token/${normalizedChain}/${address}`;
     }
     return `https://basedbot.app/token/${normalizedChain}/${address}`;
   }
@@ -515,13 +511,14 @@
       const btnGroup = createButtonGroup(chain, address, 'list');
       rowContainer.setAttribute('data-fomo-ext-row', address);
 
-      // Look for best placement on a separate line below token name
-      const targetArea = link.querySelector('[class*="flex items-center"]') || 
-                         link.parentElement?.querySelector('[class*="flex items-center"]') || 
-                         link;
+      // Look for the text/info column container (e.g. <div class="flex min-w-0 flex-1 flex-col gap-1.5">)
+      const colContainer = link.querySelector('[class*="flex-col"], [class*="flex flex-col"]') ||
+                           link.parentElement?.querySelector('[class*="flex-col"], [class*="flex flex-col"]') ||
+                           link.querySelector('[class*="flex-1"]') ||
+                           link.parentElement?.querySelector('[class*="flex-1"]');
 
-      if (targetArea && !targetArea.classList.contains('fomo-ext-btn-group')) {
-        targetArea.insertAdjacentElement('afterend', btnGroup);
+      if (colContainer && !colContainer.classList.contains('fomo-ext-btn-group')) {
+        colContainer.appendChild(btnGroup);
       } else {
         link.insertAdjacentElement('afterend', btnGroup);
       }

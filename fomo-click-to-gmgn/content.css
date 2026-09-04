@@ -92,29 +92,22 @@
 .fomo-ext-list-group {
   display: flex;
   align-items: center;
-  gap: 4px;
-  margin: 3px 0 2px 0;
-  width: 100%;
-  flex-basis: 100%;
-}
-
-.fomo-ext-list-btn {
-  padding: 1px 5px;
-  font-size: 10px;
-  height: 18px;
-  border-radius: 4px;
+  flex-wrap: wrap;
+  gap: 3px;
+  flex-basis: auto;
+  flex-shrink: 1;
+  padding: 1px 4px;
+  font-size: 9.5px;
+  height: 17px;
+  border-radius: 3px;
   letter-spacing: 0.1px;
-}
-
-.fomo-ext-list-btn .fomo-ext-label {
-  line-height: 1;
+  max-width: 100%;
+  flex-shrink: 0;
+  white-space: nowrap;
 }
 
 /* =========================================================
    2. Header / Token Detail Page Variant
-   ========================================================= */
-.fomo-ext-header-group {
-  display: inline-flex;
   align-items: center;
   gap: 6px;
   margin-left: 8px;

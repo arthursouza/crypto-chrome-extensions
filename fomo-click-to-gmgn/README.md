@@ -12,7 +12,6 @@ A lightweight Chrome Extension for [fomo.family](https://fomo.family) that injec
   - Toggle GMGN and BasedBot buttons independently.
   - Choose display locations: Token Lists (`/tokens`) and Token Detail Pages.
   - Optional Floating Quick Buttons.
-  - Customize referral codes for BasedBot and GMGN in the popup.
   - Toggle open in new tab vs current tab.
 
 ## Installation
